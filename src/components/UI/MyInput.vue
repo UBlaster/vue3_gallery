@@ -1,7 +1,12 @@
 <template>
     <div>
         <form class="header__search-bar" @submit.prevent>
-                <input type="text" class="header__search" placeholder="Поиск" v-model="query">
+                <input 
+                    type="text" 
+                    class="header__search" 
+                    placeholder="Поиск" 
+                    v-model="query"
+                >
                 <button class="header__search-icon" type="submit" @click="search">
                     <img src="@/assets/Vector.svg" alt="">
                 </button>

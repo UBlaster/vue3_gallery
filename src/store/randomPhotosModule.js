@@ -20,7 +20,7 @@ export const randomPhotosModule  = {
             try {
                 const response = await axios.get("https://api.unsplash.com/photos/random", {
                     headers: {
-                        Authorization: `Client-ID qiiOWcJpbkAlwl6tk67RxLnqJp4sVZmDDhiHzFZgr5I`,
+                        Authorization: `Client-ID bXNsCQVXDLGXKZoezxLzvVKNSLal07jlr6gVeQwdQao`,
                     },
                     params: {
                         count: 9,

@@ -1,6 +1,6 @@
 <template>
     <div class="main__container">
-        <div v-if="photos.length" class="main__gallery">
+        <div v-if="!isSearching && photos.length" class="main__gallery">
             <picture-from-api
                 v-for="photo in this.photos"
                 :photoFromApi="photo"
@@ -8,52 +8,49 @@
             >
             </picture-from-api>
         </div>
-        <div v-else>[ebnf]</div>
+        <div v-else-if="isSearching && SEARCHRESULTS.length" class="main__gallery">
+            <picture-from-api
+                v-for="photo in this.SEARCHRESULTS"
+                :photoFromApi="photo"
+                :key="photo.id"
+            >
+            </picture-from-api>
+        </div>
+        <div v-else>
+            <my-loader></my-loader>
+        </div>
     </div>
 </template>
 
 <script>
 import PictureFromApi from '@/components/PictureFromApi.vue';
-// import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
     components:{
         PictureFromApi,
     },
-    props: {
-    },
     computed: {
-        
-    },
-    created() {
-        
-       
-    },
-    async mounted() {
-        // eslint-disable-next-line
-        Promise.all([this.updateRandomPhotos()]).then(res => { // поковыряться с асинхорнонстью и ипромисами
-            this.getRandomPictures()
-        })
-        
-        
-        //this.consoleLog()
-    },
-    data() {
-        return {
-            photos: [],
+        ...mapGetters([
+            'SEARCHRESULTS',
+            'SEARCH'
+        ]),
+        photos() {
+            return this.$store.getters.RANDOMPHOTOS;
+        },
+        isSearching() {
+            // console.log(this.SEARCH, this.SEARCH !== '')
+            return this.SEARCH !== '';
         }
-    },
+    }, 
     methods: {
         async updateRandomPhotos() {
-            return this.$store.dispatch('fetchPictures');         
+            return this.$store.dispatch('fetchPictures');
         },
-        getRandomPictures() {
-            this.photos = this.$store.getters.RANDOMPHOTOS;
-        },
-        consoleLog() {
-            console.log('huy')
-        }
-    }
+    },
+    mounted() {
+        this.updateRandomPhotos();
+    },
 }
 </script>
 

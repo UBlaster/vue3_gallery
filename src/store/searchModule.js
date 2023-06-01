@@ -3,7 +3,7 @@ import axios from 'axios';
 export  const searchModule = {
     state: {
         searchValue: [], // Состояние для хранения результатов поиска
-        searchQuery: '' // для хранения результата запроса
+        searchQuery: '', // для хранения результата запроса
     },
     mutations: {
         // Мутация для обновления результатов поиска
@@ -13,12 +13,17 @@ export  const searchModule = {
         // Мутация для обновления текущего запроса
         updateSearchQuery(state, query) {
             state.searchQuery = query;
-        }
+            state.searchValue = []; // очищаем результат поиска
+        },
     },
     getters: {
         SEARCH: state => {
             return state.searchQuery
-        }
+        },
+        SEARCHRESULTS: state => {
+            return state.searchValue
+        },
+        
     },
     actions: {
          // Действие для выполнения поиска
@@ -31,10 +36,11 @@ export  const searchModule = {
                     },
                     params: {
                         query: query,
-                        count: 9,
+                        count: 8,
                     },
                 });
-                const data = response.data; // забираем данные из ответа сервера
+                const data = response.data.results; // забираем данные из ответа сервера
+                console.log(data)
                 commit('updateSearchValue', data); // Обновляем результаты поиска
             } catch {
                 console.log('ERROR SEARCH RESPONSE');   
