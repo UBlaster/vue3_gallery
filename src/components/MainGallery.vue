@@ -39,7 +39,6 @@ export default {
             return this.$store.getters.RANDOMPHOTOS;
         },
         isSearching() {
-            // console.log(this.SEARCH, this.SEARCH !== '')
             return this.SEARCH !== '';
         }
     }, 

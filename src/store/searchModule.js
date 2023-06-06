@@ -12,7 +12,7 @@ export  const searchModule = {
         },
         // Мутация для обновления текущего запроса
         updateSearchQuery(state, query) {
-            state.searchQuery = query;
+            state.searchQuery = query ;
             state.searchValue = []; // очищаем результат поиска
         },
     },
@@ -35,8 +35,8 @@ export  const searchModule = {
                         Authorization: `Client-ID bXNsCQVXDLGXKZoezxLzvVKNSLal07jlr6gVeQwdQao`,
                     },
                     params: {
+                        per_page: 9,
                         query: query,
-                        count: 8,
                     },
                 });
                 const data = response.data.results; // забираем данные из ответа сервера
