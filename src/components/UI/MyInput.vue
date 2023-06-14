@@ -50,8 +50,21 @@ export default {
     padding: 1.094vw 1.510vw 1.094vw 1.510vw;
     border: none;
     width: 45.208vw;
-    font-size: 1.6vw;
-    
+    font-size: 1.6vw;   
+}
+
+@media(max-width: 767px) {
+    .header__search{
+        width: 100%;
+        font-size: 3vw;
+
+    }
+}
+
+@media(max-width: 376px) {
+    .header__search {
+        font-size: 6vw;
+    }
 }
 
 .header__search::-webkit-search-decoration,
@@ -63,6 +76,20 @@ export default {
 .header__search-icon img {
     width: 1.2vw;
 }
+
+@media(max-width: 767px) {
+    .header__search-icon img{
+        width: 2.4vw;
+    }
+}
+
+@media(max-width: 376px) {
+    .header__search-icon img {
+        width: 4.4vw;
+    }
+}
+
+
 .header__search-icon img:hover {
     background: #00000005;
     border-radius: 15%;

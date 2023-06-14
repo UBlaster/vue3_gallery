@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <header-gallery :searchInNav="search"></header-gallery>
-        <main-gallery></main-gallery>
-    </div>
+    <header-gallery :searchInNav="search"></header-gallery>
+    <main-gallery></main-gallery>
 </template>
 
 <script>

@@ -41,4 +41,18 @@ export default {
     overflow: hidden;
     border-radius: 0.42vw;
 }
+
+@media (max-width: 376px) {
+   .img-container {
+        border-radius: 2.2vw;
+    }
+}
+
+@media (max-width: 768px) {
+   .img-container {
+        border-radius: 1.2vw;
+    }
+}
+
+
 </style>

@@ -1,1 +1,7 @@
 $offset: 12vw; //paddings left right
+
+@mixin tablet {
+    @media (max-width: 768px) {
+        padding: 5.8vw
+    }
+}

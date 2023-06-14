@@ -3,9 +3,13 @@
             <div class="header__container">
                 <img src="@/assets/logo.png" alt="ArtGallery" class="header__logo" @click="$router.push('/')">
                 <nav class="header__nav">
-                    <ul>
+                    <ul v-if="resoluton">
                         <li class="header__search header__list-item" v-if="searchInNav"><img src="@/assets/SearchIconWhite.svg" alt="search">Поиск</li>
                         <li class="header__favorites header__list-item" @click="$router.push('/favorites')"><img src="@/assets/HeartIcon.svg" alt="search" >Избранное</li>
+                    </ul>
+                    <ul v-else>
+                        <li class="header__search header__list-item" v-if="searchInNav"><img src="@/assets/SearchIconWhite.svg" alt="search"></li>
+                        <li class="header__favorites header__list-item" @click="$router.push('/favorites')"><img src="@/assets/HeartIcon.svg" alt="search" ></li>
                     </ul>
                 </nav>
             </div>
@@ -31,9 +35,11 @@ export default {
     },
     data() {
         return {
+            resoluton: true,
         }
     },
     methods: {
+        
     }
 }
 </script>
@@ -71,9 +77,27 @@ export default {
     width: 1.2vw
 }
 
+@media(max-width: 768px) {
+    .header__list-item {
+        font-size: 3vw;
+    }
+}
+
+
+@media(max-width: 768px) {
+    .header__list-item {
+        font-size: 3vw;
+    }
+}
+
 .header__bottom-row {
     height: 0.7vw;
-    background-color: #C4C4C4;
+    background-color: #C4C4C4; 
+}
+@media (max-width: 768px) {
+    .header__bottom-row {
+        display: none; 
+    }
 }
 
 </style>

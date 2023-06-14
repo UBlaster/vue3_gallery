@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <header-gallery :searchInNav="search"></header-gallery>
-    </div>
+    <header-gallery :searchInNav="search"></header-gallery>
 </template>
 
 <script>

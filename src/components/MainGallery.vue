@@ -58,6 +58,7 @@ export default {
 
 .main__container {
     padding: 5.4vw $offset;
+    @include tablet;
 }
 
 .main__gallery {
@@ -66,6 +67,19 @@ export default {
     gap:1.56vw; 
 }
 
+@media(max-width: 767px) {
+    .main__gallery {
+        grid-template: repeat(9, 1fr) / 1fr;
+        gap: 2.2vw;
+    }
+}
+
+
+@media(max-width: 376px) {
+    .main__gallery {
+        gap: 4.2vw;
+    }
+}
 
 
 </style>
