@@ -3,7 +3,7 @@
             <div class="header__container">
                 <img src="@/assets/logo.png" alt="ArtGallery" class="header__logo" @click="$router.push('/')">
                 <nav class="header__nav">
-                    <ul v-if="resoluton">
+                    <ul v-if="isWidth">
                         <li class="header__search header__list-item" v-if="searchInNav"><img src="@/assets/SearchIconWhite.svg" alt="search">Поиск</li>
                         <li class="header__favorites header__list-item" @click="$router.push('/favorites')"><img src="@/assets/HeartIcon.svg" alt="search" >Избранное</li>
                     </ul>
@@ -35,11 +35,19 @@ export default {
     },
     data() {
         return {
-            resoluton: true,
+            isWidth: window.innerWidth >= 768,
         }
     },
+    created() {
+        window.addEventListener("resize", this.updateScreenSize)
+    },
+    beforeUnmount() {
+        window.removeEventListener("resize", this.updateScreenSize)
+    },
     methods: {
-        
+        updateScreenSize() {
+            this.isWidth = window.innerWidth >= 768
+        }
     }
 }
 </script>
@@ -58,9 +66,31 @@ export default {
     padding: 2vw $offset;
 }
 
-.header__logo {
-    width: 9.635vw;
+@media (max-width: 768px) {
+    .header__container {
+       padding: 2vw $offsetTablet;
+    }
 }
+
+
+
+
+.header__logo {
+    width: 9.6vw;
+}
+
+@media (max-width: 768px) {
+    .header__logo {
+        width: 13vw;
+    }
+}
+
+@media (max-width: 320px) {
+    .header__logo {
+        width: 22vw;
+    }
+}
+
 
 .header__nav ul {
     color: white;
@@ -81,14 +111,12 @@ export default {
     .header__list-item {
         font-size: 3vw;
     }
-}
 
-
-@media(max-width: 768px) {
-    .header__list-item {
-        font-size: 3vw;
+    .header__list-item img {
+        width: 3.2vw;
     }
 }
+
 
 .header__bottom-row {
     height: 0.7vw;
