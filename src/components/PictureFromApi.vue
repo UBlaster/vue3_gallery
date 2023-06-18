@@ -13,21 +13,14 @@ export default {
             type: Object,
             required: true,
         }
-    },
-    data() {
-        return {
-        }
-    },
-    mounted() {
-        // console.log(this.photoFromApi)
-    },
-    methods: {
-    },
+    }
 }
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/mixins/mixinLayout.scss';
+
 .img {
     inset: 0;
     object-fit: cover;
@@ -40,19 +33,13 @@ export default {
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 0.42vw;
-}
-
-@media (max-width: 376px) {
-   .img-container {
+    @include rezMobile {
         border-radius: 2.2vw;
     }
-}
 
-@media (max-width: 768px) {
-   .img-container {
+    @include rezTablet{
         border-radius: 1.2vw;
     }
 }
-
 
 </style>

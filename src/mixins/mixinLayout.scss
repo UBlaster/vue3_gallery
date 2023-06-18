@@ -6,3 +6,15 @@ $offsetTablet: 5.8vw;
         padding: 5.8vw
     }
 }
+
+@mixin rezTablet {
+    @media (max-width: 768px) {
+        @content
+    }
+}
+
+@mixin rezMobile {
+    @media (max-width: 376px) {
+        @content
+    }
+}

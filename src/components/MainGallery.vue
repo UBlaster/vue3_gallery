@@ -1,23 +1,25 @@
 <template>
     <div class="main__container">
-        <div v-if="!isSearching && photos.length" class="main__gallery">
-            <picture-from-api
-                v-for="photo in this.photos"
-                :photoFromApi="photo"
-                :key="photo.id"
-            >
-            </picture-from-api>
-        </div>
-        <div v-else-if="isSearching && SEARCHRESULTS.length" class="main__gallery">
-            <picture-from-api
-                v-for="photo in this.SEARCHRESULTS"
-                :photoFromApi="photo"
-                :key="photo.id"
-            >
-            </picture-from-api>
-        </div>
-        <div v-else>
-            <my-loader></my-loader>
+        <div @click="$router.push('/picture')">
+            <div v-if="!isSearching && photos.length" class="main__gallery">
+                <picture-from-api
+                    v-for="photo in this.photos"
+                    :photoFromApi="photo"
+                    :key="photo.id"
+                >
+                </picture-from-api>
+            </div>
+            <div v-else-if="isSearching && SEARCHRESULTS.length" class="main__gallery">
+                <picture-from-api
+                    v-for="photo in this.SEARCHRESULTS"
+                    :photoFromApi="photo"
+                    :key="photo.id"
+                >
+                </picture-from-api>
+            </div>
+            <div v-else>
+                <my-loader></my-loader>
+            </div>
         </div>
     </div>
 </template>
@@ -58,28 +60,23 @@ export default {
 
 .main__container {
     padding: 5.4vw $offset;
-    @include tablet;
+    @include rezTablet {
+        padding: 5.8vw
+    }
 }
 
 .main__gallery {
     display: grid;
     grid-template: repeat(3,1fr) / repeat(3,1fr);
     gap:1.56vw; 
-}
-
-@media(max-width: 767px) {
-    .main__gallery {
+    @include rezTablet {
         grid-template: repeat(9, 1fr) / 1fr;
         gap: 2.2vw;
     }
-}
 
-
-@media(max-width: 376px) {
-    .main__gallery {
+    @include rezMobile {
         gap: 4.2vw;
-    }
+    }  
 }
-
 
 </style>

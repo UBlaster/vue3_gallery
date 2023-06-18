@@ -64,33 +64,21 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding: 2vw $offset;
-}
-
-@media (max-width: 768px) {
-    .header__container {
-       padding: 2vw $offsetTablet;
+    @include rezTablet {
+        padding: 2vw $offsetTablet;
     }
 }
-
-
-
 
 .header__logo {
     width: 9.6vw;
-}
-
-@media (max-width: 768px) {
-    .header__logo {
+    @include rezTablet {
         width: 13vw;
     }
-}
 
-@media (max-width: 320px) {
-    .header__logo {
+    @include rezMobile {
         width: 22vw;
-    }
+    }   
 }
-
 
 .header__nav ul {
     color: white;
@@ -101,29 +89,22 @@ export default {
 .header__list-item {
     display: block;
     font-size: 1vw;
+    @include rezTablet {
+        font-size: 3vw;
+    }
 }
 .header__list-item img{
     margin: 0 0.6vw 0 0;
-    width: 1.2vw
-}
-
-@media(max-width: 768px) {
-    .header__list-item {
-        font-size: 3vw;
-    }
-
-    .header__list-item img {
+    width: 1.2vw;
+    @include rezTablet {
         width: 3.2vw;
     }
 }
 
-
 .header__bottom-row {
     height: 0.7vw;
     background-color: #C4C4C4; 
-}
-@media (max-width: 768px) {
-    .header__bottom-row {
+    @include rezTablet {
         display: none; 
     }
 }

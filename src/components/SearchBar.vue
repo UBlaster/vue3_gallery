@@ -18,7 +18,6 @@ export default {
 
 <style scoped>
 .header__search-container {
-    
     margin: 0 auto;
     display: flex;
     align-items: center;

@@ -45,24 +45,20 @@ export default {
 } 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/mixins/mixinLayout.scss';
+
 .header__search {
     padding: 1.094vw 1.510vw 1.094vw 1.510vw;
     border: none;
     width: 45.208vw;
-    font-size: 1.6vw;   
-}
-
-@media(max-width: 767px) {
-    .header__search{
+    font-size: 1.6vw;
+    @include rezTablet {
         width: 100%;
         font-size: 3vw;
-
     }
-}
-
-@media(max-width: 376px) {
-    .header__search {
+    
+    @include rezMobile {
         font-size: 6vw;
     }
 }
@@ -75,20 +71,14 @@ export default {
 
 .header__search-icon img {
     width: 1.2vw;
-}
-
-@media(max-width: 767px) {
-    .header__search-icon img{
+    @include rezTablet {
         width: 2.4vw;
     }
-}
-
-@media(max-width: 376px) {
-    .header__search-icon img {
+    
+    @include rezMobile {
         width: 4.4vw;
     }
 }
-
 
 .header__search-icon img:hover {
     background: #00000005;
