@@ -5,7 +5,7 @@ export const choosedPhotoModle = {
         photoInfo: {},
     },
     mutations: {
-        getPhotoInfo({state, results}) { // получаем объект с инфо о фотографии
+        GETPHOTOINFO(state, results) { // получаем объект с инфо о фотографии
             state.photoInfo = results;
         }
     },

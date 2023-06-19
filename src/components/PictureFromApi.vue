@@ -1,11 +1,11 @@
 <template>
-    <div class="img-container" @click="pushPhotoURLToState">
+    <div class="img-container" @click="pushPhotoToStore">
         <img :src="photoFromApi.urls.regular" alt="" class="img">
     </div>
 </template>
 
 <script>
-// import axios from 'axios';
+import { mapMutations } from 'vuex';
 
 export default {
     props: {
@@ -15,8 +15,10 @@ export default {
         }
     },
     methods: {
-        pushPhotoURLToState() {
-            
+        ...mapMutations(['GETPHOTOINFO']), // Добавляем метод GETPHOTOINFO для вызова одноименной мутации Vuex.
+        pushPhotoToStore() {
+            this.GETPHOTOINFO(this.photoFromApi);
+            console.log(this.photoFromApi)
         }
     }
 }
