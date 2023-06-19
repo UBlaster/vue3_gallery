@@ -1,5 +1,5 @@
 <template>
-    <div class="img-container">
+    <div class="img-container" @click="pushPhotoURLToState">
         <img :src="photoFromApi.urls.regular" alt="" class="img">
     </div>
 </template>
@@ -12,6 +12,11 @@ export default {
         photoFromApi:{
             type: Object,
             required: true,
+        }
+    },
+    methods: {
+        pushPhotoURLToState() {
+            
         }
     }
 }

@@ -22,8 +22,7 @@ export  const searchModule = {
         },
         SEARCHRESULTS: state => {
             return state.searchValue
-        },
-        
+        }, 
     },
     actions: {
          // Действие для выполнения поиска
@@ -40,7 +39,6 @@ export  const searchModule = {
                     },
                 });
                 const data = response.data.results; // забираем данные из ответа сервера
-                console.log(data)
                 commit('updateSearchValue', data); // Обновляем результаты поиска
             } catch {
                 console.log('ERROR SEARCH RESPONSE');   
