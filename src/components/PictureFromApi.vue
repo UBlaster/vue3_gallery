@@ -18,7 +18,6 @@ export default {
         ...mapMutations(['GETPHOTOINFO']), // Добавляем метод GETPHOTOINFO для вызова одноименной мутации Vuex.
         pushPhotoToStore() {
             this.GETPHOTOINFO(this.photoFromApi);
-            console.log(this.photoFromApi)
         }
     }
 }

@@ -1,4 +1,4 @@
-<template>
+    <template>
     <div class="header__search-wrapper">
         <div class="header__search-container">
            <my-input></my-input>     
