@@ -1,0 +1,20 @@
+$offset: 12vw; //paddings left right
+$offsetTablet: 5.8vw;
+
+@mixin tablet {
+    @media (max-width: 768px) {
+        padding: 5.8vw
+    }
+}
+
+@mixin rezTablet {
+    @media (max-width: 768px) {
+        @content
+    }
+}
+
+@mixin rezMobile {
+    @media (max-width: 376px) {
+        @content
+    }
+}
