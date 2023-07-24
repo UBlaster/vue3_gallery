@@ -1,5 +1,6 @@
 $offset: 12vw; //paddings left right
 $offsetTablet: 5.8vw;
+$borderRad: 0.4vw;
 
 @mixin tablet {
     @media (max-width: 768px) {
